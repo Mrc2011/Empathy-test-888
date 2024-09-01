@@ -1,0 +1,153 @@
+import random
+
+def ask_question(question, options):
+    # Shuffle the options list
+    random.shuffle(options)
+    
+    # Print the question
+    print(question)
+    
+    # Print the randomized options
+    for i, option in enumerate(options):
+        print(f"   {chr(65 + i)}) {option[1]}")  # 65 is the ASCII value for 'A'
+    
+    # Get the user's answer
+    answer = input("\nYour choice (A/B/C/D): ").strip().upper()
+    
+    # Determine which option corresponds to the user's answer
+    selected_option = options[ord(answer) - 65][0]  # Converts A/B/C/D to index
+    
+    # Assign points based on the selected option
+    if selected_option == "B":
+        return 2
+    elif selected_option == "C":
+        return 1
+    elif selected_option == "A":
+        return -1
+    else:
+        return 0
+
+# Main quiz logic
+score = 0
+
+# Question 1
+score += ask_question(
+    "1. You see a homeless man on the street asking for money. Beside him is an empty bottle of wine and a sandwich. How do you respond?",
+    [
+        ("A", "Tell him that he is an embarrassment and that he should stop making noise."),
+        ("B", "Approach him and try to understand whether he has an unfortunate addiction, proceeding to hand him a sandwich coupon that you were going to use but decide that he needs it more."),
+        ("C", "Give him some money, pitying his shortcomings."),
+        ("D", "Ignore him.")
+    ]
+)
+
+# Question 2
+score += ask_question(
+    "\n2. You are going through a lot of work at school and you have an upcoming exam, but your friend wants to meet up as she is leaving the country the next day. What do you do?",
+    [
+        ("A", "Tell her that she shouldn't have texted on such short notice and that you don't have time for her."),
+        ("B", "Say that you will definitely be available and that you always have space for something so important."),
+        ("C", "Tell her that you would only be free to meet in a cafe. When you arrive, you rush the conversation to get it over with as quickly as possible."),
+        ("D", "Don't open the message and later pretend you only just read it, apologizing for not being able to see each other.")
+    ]
+)
+
+# Question 3
+score += ask_question(
+    "\n3. You see a friend achieve the highest mark in the class, and you are infinitely jealous. How do you respond?",
+    [
+        ("A", "Tell him that he is now a competitor and that you shouldn't be friends anymore."),
+        ("B", "Act overjoyed for him and suggest celebrating together."),
+        ("C", "Tell him he did a good job but try to dismiss the topic whenever it comes up."),
+        ("D", "Congratulate him but start seeing him less often as you decide that you need to be smarter than him.")
+    ]
+)
+
+# Question 4
+score += ask_question(
+    "\n4. Your friend has been acting strange recently. What do you do?",
+    [
+        ("A", "Don't ask her about it, deciding to stay away from her for this period."),
+        ("B", "Ask if she needs someone to talk to and offer to help her."),
+        ("C", "Ask if everything is okay in a light manner."),
+        ("D", "Decide not to intervene in the situation as it could be very delicate.")
+    ]
+)
+
+# Question 5
+score += ask_question(
+    "\n5. You see a friend being bullied by your best friend. How do you react?",
+    [
+        ("A", "Ignore the situation and don’t do anything about it."),
+        ("B", "Confront your best friend, telling him to stop, and try to assist your other friend by being on his side even if you're closer to the bully."),
+        ("C", "Tell your best friend to stop, even though you would be on his side no matter what."),
+        ("D", "Tell your friend to ignore him and not be discouraged by others.")
+    ]
+)
+
+# Question 6
+score += ask_question(
+    "\n6. Have you ever felt like you didn’t understand your own feelings?",
+    [
+        ("A", "No, but when I do, it's because of the false information that I recieve."),
+        ("B", "Yes, when this happens I try to take a step back and think about what could be affecting me."),
+        ("C", "Yes, but it's only because of people who are affecting me badly."),
+        ("D", "No, I am always in control of my inner mind.")
+    ]
+)
+
+# Question 7
+score += ask_question(
+    "\n7. How do you handle it when someone criticises you?",
+    [
+        ("A", "I think they are not speaking the truth and tell them why they are wrong."),
+        ("B", "I try to listen to what they’re saying and see if there is something I can learn from it. If not, I try to gently explain why I think I'm right."),
+        ("C", "I listen and try to see if they’re correct, but I don’t try to explain when I think I’m right."),
+        ("D", "I listen but don’t bother to take anything in from what they've said.")
+    ]
+)
+
+# Question 8
+score += ask_question(
+    "\n8. A friend’s pet has recently passed away. What do you do?",
+    [
+        ("A", "Tell her not to worry, as there are lots of pets in the world."),
+        ("B", "Give her your condolences and tell her it’s okay to feel sad, saying that it’s important to give herself time to recover."),
+        ("C", "Send her your condolences and suggest she can buy a new pet if she misses the one that passed away."),
+        ("D", "Pretend you never knew that it happened.")
+    ]
+)
+
+# Question 9
+score += ask_question(
+    "\n9. You notice a colleague at work is unusually quiet and seems down, sitting alone during lunch. What do you do?",
+    [
+        ("A", "Tell him to get back to work."),
+        ("B", "Approach him to ask if everything is okay and whether he need help with anything."),
+        ("C", "Make a light-hearted joke to try and cheer him up."),
+        ("D", "Ignore him and focus on your own tasks.")
+    ]
+)
+
+# Question 10
+score += ask_question(
+    "\n10. You see a child crying in the supermarket because he is lost and can’t find his parent. What do you do?",
+    [
+        ("A", "Ignore the situation, it's not your problem."),
+        ("B", "Approach the child and try to comfort him while you help find his parent."),
+        ("C", "Inform a store employee about it and continue with your shopping."),
+        ("D", "Ignore the child, assuming someone else will help.")
+    ]
+)
+
+# Evaluation
+print("\nEvaluating your responses...\n")
+
+if score >= 18:
+    print("You have a high level of empathy! It's very likely you're human.")
+elif 16 <= score < 18:
+    print("You show empathy, though there's room for improvement. Likely human.")
+elif 14 <= score < 16:
+    print("Your empathy is somewhat low. Could be human, requires more testing.")
+else:
+    print("Your responses suggest very low empathy. It's possible you're a machine, or a human with low empathy.")
